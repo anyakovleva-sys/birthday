@@ -6,6 +6,7 @@
 <title>Ангелине 24 · 5 декабря</title>
 <style>
 :root{--pink:#d93e77;--ink:#54213a;--muted:#87566b;--line:#efd1dc}*{box-sizing:border-box}body{margin:0;background:#fff3f7;color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:default}header{padding:21px 6%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font-size:24px;font-weight:800}.meta{font-size:14px;color:var(--muted)}main{max-width:1120px;margin:auto;padding:30px 24px 55px}.hero{text-align:center;padding:28px 0 40px}.pill{display:inline-block;padding:7px 14px;border-radius:30px;background:#fbdce8;color:#92385c;font-size:14px}h1{font-size:clamp(40px,6vw,72px);letter-spacing:-2px;line-height:1.1;margin:24px 0}h2{line-height:1.25;font-size:25px;margin:12px 0}p{color:var(--muted)}.pink{color:var(--pink)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fff;border:1px solid var(--line);padding:26px;border-radius:25px}.activity{display:flex;flex-direction:column;align-items:flex-start}.activity p{flex:1}.icon{font-size:42px}.primary{background:var(--pink);color:#fff;border:0;padding:14px 20px;border-radius:13px;font-weight:700;box-shadow:0 4px 0 #b92e60}.secondary{background:#fff;border:1px solid #eac4d3;color:#752f4c;padding:10px 16px;border-radius:12px}.note{font-size:14px;background:#fbe1eb;padding:14px 18px;border-radius:14px;margin-top:20px}.split{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-top:24px}.row{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.timer{font-size:70px;font-weight:800;line-height:1.3;text-align:center;font-variant-numeric:tabular-nums}.word{font-size:clamp(30px,5vw,48px);font-weight:800;text-align:center;margin:32px 0;overflow-wrap:anywhere}.center{text-align:center}.question{margin:18px 0}input:not([type=checkbox]),textarea{width:100%;padding:13px;margin:8px 0 16px;border:1px solid #eac4d3;border-radius:12px;color:var(--ink);background:#fffafd}textarea{min-height:85px;resize:vertical}label{display:block;font-weight:600}small{font-size:14px;color:var(--muted)}.option{background:#fff1f6;padding:11px 14px;border-radius:12px;margin:8px 0;font-weight:400}.option input{margin-right:12px;accent-color:var(--pink)}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:8px 12px;border-radius:12px;background:#fce5ee;font-size:14px}.rank{border-bottom:1px solid #f1dce5;padding:11px 0}.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}.nav .active{background:#fbdce8;border-color:#d93e77}.connection{padding:10px 24px;font-size:14px;text-align:center;background:#fbe1eb;color:#943658}#toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#60283f;color:#fff;padding:13px 20px;border-radius:14px;max-width:90%;z-index:5;box-shadow:0 5px 25px #54213a33}footer{text-align:center;color:#966279;font-size:14px;padding:12px 20px 30px}.success{color:#28724b}.error{color:#ad244d}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.entry{max-width:530px;margin:auto}.empty{padding:25px 0;color:var(--muted)}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #b42c61;outline-offset:3px}@media(max-width:750px){.grid,.split{grid-template-columns:1fr}header{padding:18px 22px}.meta{max-width:170px;text-align:right}main{padding:24px 18px}.card{padding:22px}.hero{padding-top:6px}}
+.review-answer{background:#fff3f7;padding:18px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere;margin:16px 0}.review-check{display:flex;gap:12px;align-items:center;min-height:48px;background:#fce5ee;padding:12px;border-radius:12px}.review-check input{width:22px;height:22px;accent-color:var(--pink);flex:0 0 auto}.winner{background:#fbdce8;border:2px solid #dc477b}.progress{margin:16px 0;font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -23,6 +24,7 @@ const connection=document.getElementById('connection');
 let room=new URLSearchParams(location.search).get('room');
 let token='',state=null,screen='home',busy=false,polling=false,offset=0,lastView='',toastTimer;
 let songStatus='',songStatusRound='',quizStatus='';
+let reviewIndex=0;
 const fields={};
 const savedRead=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
 function savedWrite(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}}
@@ -70,8 +72,12 @@ function entry(){
  document.getElementById('identity').textContent='5 декабря 2026 · 24 года';
  app.innerHTML='<div class="hero"><span class="pill">5 декабря · День рождения</span><h1>Мне 24.<br>И вы все здесь<span class="pink"> ♡</span></h1><p>Одна компания. Три игры. Много поводов смеяться.</p></div><section class="card entry"><h2>'+(room?'Заходи, тебя ждут':'Соберём всех вместе')+'</h2><p>'+(room?'Введи имя один раз — оно будет общим для всех игр.':'Ангелина создаёт комнату и отправляет её ссылку гостям.')+'</p>'+input('entry-name','Как тебя зовут?','Твоё имя',savedRead('birthday.name',''),'autocomplete="given-name"')+'<button class="primary" onclick="enter('+(!room)+')">'+(room?'Войти в комнату':'Создать комнату')+'</button><p><small>'+(room?'Не закрывай доступ к данным браузера: так сохранится твой вход.':'Гости заходят по приглашению из созданной комнаты.')+'</small></p></section>';
 }
-function nav(){return '<nav class="nav">'+[['home','Наш вечер'],['hat','Шляпа'],['quiz','Викторина'],['music','Песни']].map(([key,label])=>'<button class="secondary '+(screen===key?'active':'')+'" onclick="go(\''+key+'\')">'+label+'</button>').join('')+'</nav>'}
-function go(next){screen=next;lastView='';render(true);window.scrollTo({top:0,behavior:'smooth'})}
+function nav(){return '<nav class="nav">'+[['home','Наш вечер'],['hat','Шляпа'],['quiz','Викторина'],['music','Песни'],...(state.host?[['review','Проверка викторины']]:[])].map(([key,label])=>'<button class="secondary '+(screen===key?'active':'')+'" onclick="go(\''+key+'\')">'+label+'</button>').join('')+'</nav>'}
+function go(next){
+ if(next==='review'&&!state?.host)return;
+ screen=next;lastView='';render(true);window.scrollTo({top:0,behavior:'smooth'});
+ if(next==='review')act('admin_state');
+}
 function render(force=false){
  if(!state){entry();return}
  const nextView=JSON.stringify({...state,server_now:0,revision:0})+screen+songStatus+quizStatus;
@@ -80,12 +86,12 @@ function render(force=false){
  const active=document.activeElement,activeId=active?.id;let start=null,end=null;
  try{start=active.selectionStart;end=active.selectionEnd}catch{}
  document.getElementById('identity').textContent=state.name+(state.host?' · ведущая':'')+' · 5 декабря';
- app.innerHTML=nav()+(screen==='home'?homeView():screen==='hat'?hatView():screen==='music'?musicView():quizView());
+ app.innerHTML=nav()+(screen==='home'?homeView():screen==='hat'?hatView():screen==='music'?musicView():screen==='review'?reviewView():quizView());
  restoreQuizFields();
  if(activeId){const el=document.getElementById(activeId);if(el&&!el.disabled){el.focus({preventScroll:true});try{if(start!==null)el.setSelectionRange(start,end)}catch{}}}
  tick();
 }
-function homeView(){return '<div class="hero"><span class="pill">Ангелина & её любимые люди</span><h1>Хорошо, что<br>вы все здесь<span class="pink"> ♡</span></h1><p>Выбери игру. Имя и очередь уже общие для всей компании.</p><button class="secondary" onclick="invite()">Скопировать ссылку для гостей</button></div><div class="grid">'+[['🎩','Всё дело в шляпе','Семь своих слов, три раунда и баллы обоим за каждое угадывание.','hat','В шляпу'],['💌','Кто знает Ангелину?','Смешные истории, любимые вещи и вопросы про именинницу.','quiz','Ответить'],['🎶','Это же та самая!','По очереди включаем песни. Первый правильный письменный ответ приносит балл.','music','Угадывать']].map(([icon,title,description,key,button])=>'<section class="card activity"><div class="icon">'+icon+'</div><h2>'+title+'</h2><p>'+description+'</p><button class="primary" onclick="go(\''+key+'\')">'+button+'</button></section>').join('')+'</div><section class="card" style="margin-top:24px"><div class="row"><h2>Наша компания</h2><span class="pill">'+state.players.length+' человек</span></div>'+playerChips()+'<p>'+(!state.locked?'Порядок входа — порядок игры. Когда все соберутся, можно начинать.':'Состав зафиксирован, очередь идёт по кругу.')+'</p>'+(state.host?'<p><small>Ответы викторины смотри в своём кабинете Supabase: Table Editor → quiz_answers. Слова из «Шляпы» в этот список не попадают.</small></p>':'')+'</section>'}
+function homeView(){return '<div class="hero"><span class="pill">Ангелина & её любимые люди</span><h1>Хорошо, что<br>вы все здесь<span class="pink"> ♡</span></h1><p>Выбери игру. Имя и очередь уже общие для всей компании.</p><button class="secondary" onclick="invite()">Скопировать ссылку для гостей</button></div><div class="grid">'+[['🎩','Всё дело в шляпе','Семь своих слов, три раунда и баллы обоим за каждое угадывание.','hat','В шляпу'],['💌','Кто знает Ангелину?','Смешные истории, любимые вещи и вопросы про именинницу.','quiz','Ответить'],['🎶','Это же та самая!','По очереди включаем песни. Первый правильный письменный ответ приносит балл.','music','Угадывать']].map(([icon,title,description,key,button])=>'<section class="card activity"><div class="icon">'+icon+'</div><h2>'+title+'</h2><p>'+description+'</p><button class="primary" onclick="go(\''+key+'\')">'+button+'</button></section>').join('')+'</div><section class="card" style="margin-top:24px"><div class="row"><h2>Наша компания</h2><span class="pill">'+state.players.length+' человек</span></div>'+playerChips()+'<p>'+(!state.locked?'Порядок входа — порядок игры. Когда все соберутся, можно начинать.':'Состав зафиксирован, очередь идёт по кругу.')+'</p>'+(state.host?'<p><small>Ответы гостей открываются в разделе «Проверка викторины». Он доступен только тебе. Слова из «Шляпы» туда не попадают.</small></p>':'')+'</section>'}
 function lockRoom(){if(confirm('Все гости уже вошли? После фиксации новые участники не смогут присоединиться.'))act('lock_room')}
 function playerChips(){return '<div class="chips">'+state.players.map((p,i)=>'<span class="chip">'+(i+1)+'. '+esc(p.name)+(p.id===state.me?' ♡':'')+'</span>').join('')+'</div>'}
 async function invite(){try{await navigator.clipboard.writeText(location.href);toast('Ссылка скопирована. Отправь её гостям')}catch{prompt('Скопируй ссылку для гостей',location.href)}}
@@ -135,10 +141,64 @@ function quizView(){
  return '<h1>Кто знает<br>Ангелину?</h1><span class="pill">Отвечает: '+esc(state.name)+'</span><p>Свободные ответы проверит именинница.</p>'+questions.map((q,i)=>'<section class="card question"><small>Вопрос '+(i+1)+' из '+questions.length+'</small><h2>'+q+'</h2>'+(i===3?'<p>Выбери три варианта.</p>'+options.map((o,j)=>'<label class="option"><input type="checkbox" data-choice="'+j+'">'+o+'</label>').join(''):'<textarea id="f-quiz'+i+'" data-field="quiz'+i+'" maxlength="1000" placeholder="Твоя версия…">'+esc(fieldValue('quiz'+i,draft.answers?.[i]||''))+'</textarea>')+'</section>').join('')+'<button class="primary" onclick="submitQuiz()">Отправить ответы Ангелине</button><p role="status">'+esc(quizStatus)+'</p>';
 }
 async function submitQuiz(){const sections=[...app.querySelectorAll('[data-choice]:checked')].map(x=>Number(x.dataset.choice));if(sections.length!==3)return toast('Выбери три секции');saveQuizDraft();const answers={};questions.forEach((q,i)=>answers[q]=i===3?sections.map(j=>options[j]):getField('quiz'+i).trim());quizStatus='';await act('quiz_submit',{answers})}
+
+function reviewDraftKey(player){return 'birthday.reviewDraft.'+room+'.'+player}
+function reviewMarks(card){const draft=savedRead(reviewDraftKey(card.player),null);return Array.isArray(draft)&&draft.length===10?draft:[...card.marks]}
+function reviewedCards(){return state.review?.cards||[]}
+function reviewView(){
+ if(!state.host)return '<p>Нет доступа.</p>';
+ if(!state.review)return '<h1>Проверка викторины</h1><p>Загружаем бланки гостей…</p><button class="secondary" onclick="act(\'admin_state\')">Обновить</button>';
+ const cards=reviewedCards();
+ const checked=cards.filter(c=>c.checked).length,submitted=cards.filter(c=>c.submitted).length;
+ const allDone=cards.length>0&&checked===cards.length&&submitted===cards.length;
+ let top='<h1>Проверка<br>викторины ♡</h1><p>Только для тебя. Один правильный ответ — один балл. Твой собственный бланк не участвует в конкурсе.</p><div class="progress">Ответили '+submitted+' из '+cards.length+' · проверено '+checked+' из '+cards.length+'</div>';
+ if(!cards.length)return top+'<section class="card"><h2>Пока ждём гостей</h2><p>Здесь появятся их бланки после входа в комнату.</p></section>';
+ if(state.review.finalized){
+   const sorted=[...cards].sort((a,b)=>b.score-a.score);const max=sorted[0].score;
+   const leaders=sorted.filter(c=>c.score===max);
+   top+='<section class="card winner"><span class="icon">🏆</span><h2>'+(leaders.length===1?'Победитель: ':'Победу разделили: ')+leaders.map(c=>esc(c.name)).join(', ')+'</h2><p>'+max+' из 10 баллов</p>'+sorted.map((c,i)=>'<div class="row rank"><span>'+(i+1)+'. '+esc(c.name)+'</span><b>'+c.score+' / 10</b></div>').join('')+'</section><p><small>Можно исправить отметки и снова подвести итоги. После сохранения изменённого бланка прежний итог отменится.</small></p>';
+ }
+ reviewIndex=Math.min(Math.max(0,reviewIndex),cards.length-1);
+ const card=cards[reviewIndex],marks=reviewMarks(card),draft=savedRead(reviewDraftKey(card.player),null);
+ top+='<div class="row" style="margin:24px 0"><button class="secondary" onclick="reviewStep(-1)" '+(reviewIndex===0?'disabled':'')+'>Предыдущий бланк</button><span class="pill">Бланк '+(reviewIndex+1)+' из '+cards.length+'</span><button class="secondary" onclick="reviewStep(1)" '+(reviewIndex===cards.length-1?'disabled':'')+'>Следующий бланк</button></div><section class="card"><div class="row"><h2>'+esc(card.name)+'</h2><span class="pill">'+(card.checked?'Проверен · '+card.score+' / 10':card.submitted?'Ждёт проверки':'Ещё не отправлен')+'</span></div>';
+ if(!card.submitted)top+='<p>Гость ещё не отправил викторину. Можешь перейти к следующему бланку и вернуться позже.</p></section>';
+ else{
+   top+='<p>Отметь галочкой каждый правильный ответ. Без галочки — ноль баллов.</p></section>'+questions.map((question,i)=>{
+     const answer=card.answers?.[question];
+     const text=Array.isArray(answer)?answer.join(', '):typeof answer==='string'?answer:answer==null?'':JSON.stringify(answer);
+     return '<section class="card question"><small>Вопрос '+(i+1)+' из 10</small><h2>'+esc(question)+'</h2><div class="review-answer">'+(text.trim()?esc(text):'Ответ не указан')+'</div><label class="review-check"><input type="checkbox" id="review-mark-'+i+'" data-review-mark="'+i+'" '+(marks[i]?'checked':'')+'>Ответ верный · 1 балл</label></section>'
+   }).join('')+'<section class="card"><div class="row"><h2 id="reviewScore">Отмечено: '+marks.filter(Boolean).length+' / 10</h2><button class="primary" onclick="saveReview(false)">'+(card.checked?'Сохранить изменения':'Бланк проверен')+'</button></div><p id="reviewDraftStatus" class="meta">'+(draft?'Есть несохранённые отметки.':'Сохрани проверку, чтобы баллы вошли в итог.')+'</p>'+(reviewIndex<cards.length-1?'<button class="secondary" onclick="saveReview(true)">Сохранить и открыть следующий</button>':'')+'</section>';
+ }
+ const dirty=cards.some(c=>savedRead(reviewDraftKey(c.player),null)!==null);
+ top+='<section class="card" style="margin-top:24px"><h2>Когда все бланки проверены</h2><p>'+(dirty?'Сначала сохрани несохранённые отметки.':!allDone?'Дождись ответов всех гостей и сохрани проверку каждого бланка.':'Все бланки проверены. Можно определить победителя!')+'</p><button class="primary" onclick="finishReview()" '+(!allDone||dirty?'disabled':'')+'>Подвести итоги</button></section>';
+ return top;
+}
+app.addEventListener('change',e=>{
+ if(!e.target.matches('[data-review-mark]')||!state?.host||screen!=='review')return;
+ const card=reviewedCards()[reviewIndex];if(!card)return;
+ const marks=Array.from({length:10},(_,i)=>!!document.getElementById('review-mark-'+i)?.checked);
+ savedWrite(reviewDraftKey(card.player),marks);
+ const count=document.getElementById('reviewScore');if(count)count.textContent='Отмечено: '+marks.filter(Boolean).length+' / 10';
+ const status=document.getElementById('reviewDraftStatus');if(status)status.textContent='Есть несохранённые отметки.';
+ lastView='';render(true);
+});
+function reviewStep(delta){reviewIndex+=delta;lastView='';render(true);window.scrollTo({top:0,behavior:'smooth'})}
+async function saveReview(next){
+ const card=reviewedCards()[reviewIndex];if(!card?.submitted)return;
+ const marks=Array.from({length:10},(_,i)=>!!document.getElementById('review-mark-'+i)?.checked);
+ const result=await act('review_save',{player:card.player,marks});
+ if(result){savedWrite(reviewDraftKey(card.player),null);toast('Бланк '+card.name+' проверен');if(next)reviewIndex=Math.min(reviewIndex+1,reviewedCards().length-1);lastView='';render(true);if(next)window.scrollTo({top:0,behavior:'smooth'})}
+}
+async function finishReview(){
+ if(reviewedCards().some(c=>savedRead(reviewDraftKey(c.player),null)!==null))return toast('Сначала сохрани все отметки');
+ if(!state.locked){if(!confirm('Все гости уже вошли? Для итогов зафиксируем список участников.'))return;const locked=await act('lock_room');if(!locked)return}
+ const result=await act('review_finish');if(result){lastView='';render(true);window.scrollTo({top:0,behavior:'smooth'})}
+}
+
 async function poll(){
  if(!state||busy||polling||document.hidden)return;
  polling=true;
- try{const next=await rpc('state');accept(next)}catch(e){setConnection('Связь прервана. Переподключаемся автоматически…')}
+ try{const next=await rpc(screen==='review'&&state.host?'admin_state':'state');accept(next)}catch(e){setConnection('Связь прервана. Переподключаемся автоматически…')}
  finally{polling=false}
 }
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)poll()});
