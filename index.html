@@ -1,401 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ангелине 24 · 5 декабря</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#fff3f7;color:#54213a;font:16px/1.6 system-ui,-apple-system,sans-serif}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-header{padding:22px 6%;border-bottom:1px solid #efd1dc;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.brand{font-size:24px;font-weight:800}
-.date{font-size:14px;color:#87566b}
-main{max-width:1120px;margin:auto;padding:32px 24px 50px}
-.hero{text-align:center;padding:26px 0 42px}
-.pill{display:inline-block;padding:7px 15px;border-radius:30px;background:#fbdce8;color:#92385c;font-size:14px}
-h1{font-size:clamp(42px,7vw,76px);letter-spacing:-3px;line-height:1.08;margin:24px 0}
-h2{line-height:1.2;font-size:26px;margin:12px 0}
-p{color:#85556a}
-.pink{color:#dc477b}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:white;border:1px solid #efd1dc;padding:27px;border-radius:25px}
-.activity{display:flex;flex-direction:column;align-items:flex-start}
-.activity p{flex:1}
-.icon{font-size:43px}
-.label{font-size:14px;color:#a14268}
-.primary{background:#d93e77;color:#fff;border:0;padding:14px 20px;border-radius:13px;font-weight:700;box-shadow:0 4px 0 #b92e60}
-.secondary{background:#fff;border:1px solid #eac4d3;color:#752f4c;padding:10px 17px;border-radius:12px}
-.note{font-size:14px;background:#fbe1eb;padding:14px 18px;border-radius:14px;margin-top:24px}
-.split{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-top:24px}
-.row{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.timer{font-size:72px;font-weight:800;line-height:1.3;text-align:center}
-.word{font-size:34px;font-weight:800;text-align:center;margin:30px 0}
-.center{text-align:center}
-.question{margin:18px 0}
-input[type=text],textarea{width:100%;padding:13px;margin:10px 0;border:1px solid #eac4d3;border-radius:12px;color:#54213a;background:#fffafd}
-textarea{min-height:90px}
-.option{display:block;background:#fff1f6;padding:11px 14px;border-radius:12px;margin:8px 0}
-.option input{margin-right:12px;accent-color:#d93e77}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:8px 12px;border-radius:12px;background:#fce5ee;font-size:14px}
-.rank{border-bottom:1px solid #f1dce5;padding:12px 0}
-footer{text-align:center;color:#966279;font-size:14px;padding:12px 20px 30px}
-button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #b42c61;outline-offset:3px}
-@media(max-width:750px){
-.grid,.split{grid-template-columns:1fr}
-header{padding:18px 22px}
-.date{max-width:140px;text-align:right}
-main{padding:24px 18px}
-h1{letter-spacing:-2px}
-.hero{padding-top:10px}
-.card{padding:23px}
-}
+:root{--pink:#d93e77;--ink:#54213a;--muted:#87566b;--line:#efd1dc}*{box-sizing:border-box}body{margin:0;background:#fff3f7;color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:default}header{padding:21px 6%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font-size:24px;font-weight:800}.meta{font-size:14px;color:var(--muted)}main{max-width:1120px;margin:auto;padding:30px 24px 55px}.hero{text-align:center;padding:28px 0 40px}.pill{display:inline-block;padding:7px 14px;border-radius:30px;background:#fbdce8;color:#92385c;font-size:14px}h1{font-size:clamp(40px,6vw,72px);letter-spacing:-2px;line-height:1.1;margin:24px 0}h2{line-height:1.25;font-size:25px;margin:12px 0}p{color:var(--muted)}.pink{color:var(--pink)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fff;border:1px solid var(--line);padding:26px;border-radius:25px}.activity{display:flex;flex-direction:column;align-items:flex-start}.activity p{flex:1}.icon{font-size:42px}.primary{background:var(--pink);color:#fff;border:0;padding:14px 20px;border-radius:13px;font-weight:700;box-shadow:0 4px 0 #b92e60}.secondary{background:#fff;border:1px solid #eac4d3;color:#752f4c;padding:10px 16px;border-radius:12px}.note{font-size:14px;background:#fbe1eb;padding:14px 18px;border-radius:14px;margin-top:20px}.split{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-top:24px}.row{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.timer{font-size:70px;font-weight:800;line-height:1.3;text-align:center;font-variant-numeric:tabular-nums}.word{font-size:clamp(30px,5vw,48px);font-weight:800;text-align:center;margin:32px 0;overflow-wrap:anywhere}.center{text-align:center}.question{margin:18px 0}input:not([type=checkbox]),textarea{width:100%;padding:13px;margin:8px 0 16px;border:1px solid #eac4d3;border-radius:12px;color:var(--ink);background:#fffafd}textarea{min-height:85px;resize:vertical}label{display:block;font-weight:600}small{font-size:14px;color:var(--muted)}.option{background:#fff1f6;padding:11px 14px;border-radius:12px;margin:8px 0;font-weight:400}.option input{margin-right:12px;accent-color:var(--pink)}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:8px 12px;border-radius:12px;background:#fce5ee;font-size:14px}.rank{border-bottom:1px solid #f1dce5;padding:11px 0}.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}.nav .active{background:#fbdce8;border-color:#d93e77}.connection{padding:10px 24px;font-size:14px;text-align:center;background:#fbe1eb;color:#943658}#toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#60283f;color:#fff;padding:13px 20px;border-radius:14px;max-width:90%;z-index:5;box-shadow:0 5px 25px #54213a33}footer{text-align:center;color:#966279;font-size:14px;padding:12px 20px 30px}.success{color:#28724b}.error{color:#ad244d}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.entry{max-width:530px;margin:auto}.empty{padding:25px 0;color:var(--muted)}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #b42c61;outline-offset:3px}@media(max-width:750px){.grid,.split{grid-template-columns:1fr}header{padding:18px 22px}.meta{max-width:170px;text-align:right}main{padding:24px 18px}.card{padding:22px}.hero{padding-top:6px}}
 </style>
 </head>
 <body>
-<header>
-  <div class="brand">Ангелина <span class="pink">♡</span></div>
-  <div class="date">5 декабря 2026 · 24 года</div>
-</header>
-
+<header><div class="brand">Ангелина <span class="pink">♡</span></div><div class="meta" id="identity">5 декабря 2026 · 24 года</div></header>
+<div class="connection" id="connection">Подключаемся…</div>
 <main id="app"></main>
 <footer>Мои любимые люди — в одном месте ♡</footer>
-
+<div id="toast" hidden role="status" aria-live="polite"></div>
 <script>
+'use strict';
+const API='https://qnzzhnbtalzobhigellb.supabase.co/rest/v1/rpc/birthday_api';
+const KEY='sb_publishable_tsbzY5JrtgdJa437RqAquQ_6KKteoxc';
 const app=document.getElementById('app');
-let interval=null,round=0,turn=0,end=0;
-const players=['Ангелина','Маша','Даша','Саша','Аня','Дима','Катя','Илья','Оля','Максим'];
-const scores=players.map(()=>0);
-const words=['Капибара','Круассан','Телепортация','Караоке','Невесомость','Объятия','Чемодан'];
-let pool=[...words];
-const rounds=['Объясняем словами','Показываем жестами','Одна ассоциация'];
-const durations=[30,45,30];
-const answers={};
-let guest='',selectedSections=[];
-
-function clean(){
-  clearInterval(interval);
-  interval=null;
+const connection=document.getElementById('connection');
+let room=new URLSearchParams(location.search).get('room');
+let token='',state=null,screen='home',busy=false,polling=false,offset=0,lastView='',toastTimer;
+let songStatus='',songStatusRound='',quizStatus='';
+const fields={};
+const savedRead=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
+function savedWrite(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}}
+const sessions=savedRead('birthday.sessions.v3',{});
+const uuid=()=>crypto.randomUUID();
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(text){clearTimeout(toastTimer);const el=document.getElementById('toast');el.textContent=text;el.hidden=false;toastTimer=setTimeout(()=>el.hidden=true,6500)}
+function fieldKey(key){return (room||'entry')+':'+key}
+function fieldValue(key,fallback=''){return fields[fieldKey(key)]??fallback}
+function input(key,label,placeholder='',fallback='',extra=''){return '<label>'+esc(label)+'<input id="f-'+esc(key)+'" data-field="'+esc(key)+'" maxlength="120" value="'+esc(fieldValue(key,fallback))+'" placeholder="'+esc(placeholder)+'" '+extra+'></label>'}
+app.addEventListener('input',e=>{const el=e.target;if(el.dataset.field){fields[fieldKey(el.dataset.field)]=el.value;if(el.dataset.field.startsWith('quiz'))saveQuizDraft()}});
+app.addEventListener('change',e=>{if(e.target.matches('[data-choice]')){const selected=[...app.querySelectorAll('[data-choice]:checked')];if(selected.length>3){e.target.checked=false;toast('Можно выбрать ровно три секции')}saveQuizDraft()}});
+function getField(key){return document.getElementById('f-'+key)?.value??fieldValue(key)}
+function setConnection(text,ok=false){connection.textContent=text;connection.style.background=ok?'#e7f2eb':'#fbe1eb';connection.style.color=ok?'#28724b':'#943658'}
+function membership(){if(!room)return;token=sessions[room]||'';if(!token){token=uuid();sessions[room]=token;if(!savedWrite('birthday.sessions.v3',sessions))toast('Разреши сохранение данных в браузере, чтобы сохранить свой вход')}}
+async function rpc(action,data={}){
+ const started=Date.now();
+ const response=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json','apikey':KEY},body:JSON.stringify({p_action:action,p_room:room||null,p_token:token,p_data:data}),signal:AbortSignal.timeout(20000)});
+ let body=await response.json().catch(()=>null);
+ if(!response.ok)throw Error(body?.message||'Ошибка подключения ('+response.status+')');
+ if(!body?.room||!body.players)throw Error('Сервер вернул неожиданный ответ');
+ offset=body.server_now-(started+Date.now())/2;
+ return body;
 }
-
-function back(){
-  return '<button class="secondary" onclick="home()">На главную</button>';
+function accept(next){if(state&&next.room===state.room&&next.revision<state.revision)return;state=next;room=next.room;setConnection('Комната подключена · '+state.players.length+' участников',true);render()}
+async function act(action,data={}){
+ if(busy)return null;
+ busy=true;app.querySelectorAll('button').forEach(b=>b.disabled=true);
+ try{const next=await rpc(action,data);accept(next);return next}catch(e){toast(e.name==='TimeoutError'?'Не удалось подтвердить действие. Проверь соединение и дождись обновления комнаты.':e.message);return null}
+ finally{busy=false;render(true)}
 }
-
-function home(){
-  clean();
-  app.innerHTML=`
-    <section class="hero">
-      <span class="pill">5 декабря · День рождения</span>
-      <h1>Мне 24.<br>И вы все здесь<span class="pink"> ♡</span></h1>
-      <p>Сегодня собираем смешные истории, угадываем песни<br>
-      и проверяем, кто знает меня лучше всех.</p>
-      <span class="pill">Ангелина & её любимые люди</span>
-    </section>
-    <div class="grid">
-      <section class="card activity">
-        <div class="icon">🎩</div>
-        <span class="label">Игра по кругу</span>
-        <h2>Всё дело в шляпе</h2>
-        <p>Одни слова, три способа объяснить. Говорим, показываем
-        и угадываем по одной ассоциации.</p>
-        <button class="primary" onclick="lobby()">Заглянуть в шляпу</button>
-      </section>
-      <section class="card activity">
-        <div class="icon">💌</div>
-        <span class="label">Про именинницу</span>
-        <h2>Кто знает Ангелину?</h2>
-        <p>Детство, любимые вещи и маленькие странности.
-        Насколько хорошо ты меня знаешь?</p>
-        <button class="primary" onclick="quiz()">Ответить на вопросы</button>
-      </section>
-      <section class="card activity">
-        <div class="icon">🎶</div>
-        <span class="label">Угадай мелодию</span>
-        <h2>Это же та самая!</h2>
-        <p>Несколько секунд знакомого трека — и уже хочется подпевать.
-        Кто первым вспомнит название?</p>
-        <button class="primary" onclick="music()">Открыть конкурс</button>
-      </section>
-    </div>`;
+async function enter(create){
+ if(busy)return;
+ const name=getField('entry-name').trim();if(!name||name.length>40)return toast('Введи имя до 40 символов');
+ busy=true;document.querySelectorAll('button').forEach(b=>b.disabled=true);
+ try{
+   if(create){token=savedRead('birthday.pendingCreate',null)||uuid();savedWrite('birthday.pendingCreate',token)}else membership();
+   const next=await rpc(create?'create':'join',{name});
+   room=next.room;sessions[room]=token;savedWrite('birthday.sessions.v3',sessions);savedWrite('birthday.name',name);
+   if(create)savedWrite('birthday.pendingCreate',null);
+   const u=new URL(location.href);u.searchParams.set('room',room);history.replaceState({},'',u);accept(next);
+ }catch(e){toast(e.message)}finally{busy=false;render(true)}
 }
-
-function lobby(){
-  clean();
-  app.innerHTML=back()+`
-    <h1>Все свои — в сборе<span class="pink"> ♡</span></h1>
-    <p>Каждый объясняет следующему по кругу.
-    За угаданное слово оба получают по баллу.</p>
-    <div class="split">
-      <section class="card">
-        <h2>Слова в шляпе</h2>
-        <p>Каждый добавляет 7 слов: два лёгких, три средних и два сложных.</p>
-        <div class="chips">
-          ${words.map(w=>'<span class="chip">'+w+'</span>').join('')}
-        </div>
-        <p>Три раунда — один набор слов.</p>
-        <button class="primary" onclick="startGame()">Начать игру</button>
-      </section>
-      <aside class="card">
-        <h2>Наша компания</h2>
-        <div class="chips">
-          ${players.map(p=>'<span class="chip">'+p+'</span>').join('')}
-        </div>
-        <p>Словами — 30 секунд<br>
-        Жестами — 45 секунд<br>
-        Ассоциацией — 30 секунд</p>
-      </aside>
-    </div>`;
+function entry(){
+ document.getElementById('identity').textContent='5 декабря 2026 · 24 года';
+ app.innerHTML='<div class="hero"><span class="pill">5 декабря · День рождения</span><h1>Мне 24.<br>И вы все здесь<span class="pink"> ♡</span></h1><p>Одна компания. Три игры. Много поводов смеяться.</p></div><section class="card entry"><h2>'+(room?'Заходи, тебя ждут':'Соберём всех вместе')+'</h2><p>'+(room?'Введи имя один раз — оно будет общим для всех игр.':'Ангелина создаёт комнату и отправляет её ссылку гостям.')+'</p>'+input('entry-name','Как тебя зовут?','Твоё имя',savedRead('birthday.name',''),'autocomplete="given-name"')+'<button class="primary" onclick="enter('+(!room)+')">'+(room?'Войти в комнату':'Создать комнату')+'</button><p><small>'+(room?'Не закрывай доступ к данным браузера: так сохранится твой вход.':'Гости заходят по приглашению из созданной комнаты.')+'</small></p></section>';
 }
-
-function startGame(){
-  round=0;
-  turn=0;
-  pool=[...words];
-  scores.fill(0);
-  end=0;
-  game();
+function nav(){return '<nav class="nav">'+[['home','Наш вечер'],['hat','Шляпа'],['quiz','Викторина'],['music','Песни']].map(([key,label])=>'<button class="secondary '+(screen===key?'active':'')+'" onclick="go(\''+key+'\')">'+label+'</button>').join('')+'</nav>'}
+function go(next){screen=next;lastView='';render(true);window.scrollTo({top:0,behavior:'smooth'})}
+function render(force=false){
+ if(!state){entry();return}
+ const nextView=JSON.stringify({...state,server_now:0,revision:0})+screen+songStatus+quizStatus;
+ if(!force&&nextView===lastView)return;
+ lastView=nextView;
+ const active=document.activeElement,activeId=active?.id;let start=null,end=null;
+ try{start=active.selectionStart;end=active.selectionEnd}catch{}
+ document.getElementById('identity').textContent=state.name+(state.host?' · ведущая':'')+' · 5 декабря';
+ app.innerHTML=nav()+(screen==='home'?homeView():screen==='hat'?hatView():screen==='music'?musicView():quizView());
+ restoreQuizFields();
+ if(activeId){const el=document.getElementById(activeId);if(el&&!el.disabled){el.focus({preventScroll:true});try{if(start!==null)el.setSelectionRange(start,end)}catch{}}}
+ tick();
 }
-
-function leaderboard(){
-  return players
-    .map((name,i)=>({name,score:scores[i]}))
-    .sort((a,b)=>b.score-a.score)
-    .map(p=>'<div class="row rank"><span>'+p.name+'</span><b>'+p.score+'</b></div>')
-    .join('');
+function homeView(){return '<div class="hero"><span class="pill">Ангелина & её любимые люди</span><h1>Хорошо, что<br>вы все здесь<span class="pink"> ♡</span></h1><p>Выбери игру. Имя и очередь уже общие для всей компании.</p><button class="secondary" onclick="invite()">Скопировать ссылку для гостей</button></div><div class="grid">'+[['🎩','Всё дело в шляпе','Семь своих слов, три раунда и баллы обоим за каждое угадывание.','hat','В шляпу'],['💌','Кто знает Ангелину?','Смешные истории, любимые вещи и вопросы про именинницу.','quiz','Ответить'],['🎶','Это же та самая!','По очереди включаем песни. Первый правильный письменный ответ приносит балл.','music','Угадывать']].map(([icon,title,description,key,button])=>'<section class="card activity"><div class="icon">'+icon+'</div><h2>'+title+'</h2><p>'+description+'</p><button class="primary" onclick="go(\''+key+'\')">'+button+'</button></section>').join('')+'</div><section class="card" style="margin-top:24px"><div class="row"><h2>Наша компания</h2><span class="pill">'+state.players.length+' человек</span></div>'+playerChips()+'<p>'+(!state.locked?'Порядок входа — порядок игры. Когда все соберутся, можно начинать.':'Состав зафиксирован, очередь идёт по кругу.')+'</p>'+(state.host?'<p><small>Ответы викторины смотри в своём кабинете Supabase: Table Editor → quiz_answers. Слова из «Шляпы» в этот список не попадают.</small></p>':'')+'</section>'}
+function lockRoom(){if(confirm('Все гости уже вошли? После фиксации новые участники не смогут присоединиться.'))act('lock_room')}
+function playerChips(){return '<div class="chips">'+state.players.map((p,i)=>'<span class="chip">'+(i+1)+'. '+esc(p.name)+(p.id===state.me?' ♡':'')+'</span>').join('')+'</div>'}
+async function invite(){try{await navigator.clipboard.writeText(location.href);toast('Ссылка скопирована. Отправь её гостям')}catch{prompt('Скопируй ссылку для гостей',location.href)}}
+function scores(kind){return '<aside class="card"><h2>Личный счёт</h2>'+[...state.players].sort((a,b)=>b[kind]-a[kind]).map(p=>'<div class="row rank"><span>'+esc(p.name)+'</span><b>'+p[kind]+'</b></div>').join('')+'</aside>'}
+const roundNames=['Объясняем словами','Показываем жестами','Одна ассоциация'];
+function hatView(){
+ const h=state.hat,p=state.players[h.turn],q=state.players[(h.turn+1)%state.players.length];
+ const mine=p?.id===state.me;
+ if(h.phase==='lobby'){
+   const ready=state.players.filter(p=>p.ready).length,me=state.players.find(p=>p.id===state.me);
+   return '<h1>Всё дело в шляпе<span class="pink">.</span></h1><p>Добавь семь слов: два лёгких, три средних и два сложных. Твои слова останутся секретом для других.</p><div class="split"><section class="card"><h2>'+(me.ready?'Твои слова готовы ✓':'Твои слова')+'</h2>'+Array.from({length:7},(_,i)=>input('word'+i,['Лёгкое','Лёгкое','Среднее','Среднее','Среднее','Сложное','Сложное'][i]+' · '+(i+1),'Слово',state.my_words[i]||'')).join('')+'<button class="primary" onclick="submitWords()">'+(me.ready?'Обновить слова':'Отправить в шляпу')+'</button></section><aside class="card"><h2>Собираем шляпу</h2><p>Готовы '+ready+' из '+state.players.length+'</p><div class="chips">'+state.players.map(p=>'<span class="chip">'+esc(p.name)+(p.ready?' ✓':' …')+'</span>').join('')+'</div><p>Словами — 30 секунд<br>Жестами — 45 секунд<br>Ассоциацией — 30 секунд</p><p>За каждое угаданное слово балл получают и объясняющий, и угадывающий.</p>'+(state.host?'<button class="primary" onclick="act(\'hat_start\')" '+(ready!==state.players.length||ready<2?'disabled':'')+'>Все в сборе — начать</button>':'<p>Игру начнёт Ангелина, когда все добавят слова.</p>')+'</aside></div>';
+ }
+ if(h.phase==='done')return '<div class="hero"><span class="pill">Три раунда позади</span><h1>Вот это вечер ♡</h1><p>Все слова угаданы. При равных баллах победу делят лидеры.</p></div>'+scores('hat_score');
+ return '<h1 style="font-size:44px">'+roundNames[h.round]+'</h1><span class="pill">Раунд '+(h.round+1)+' из 3 · осталось слов: '+h.left+'</span><div class="split"><section class="card"><div class="row"><span>'+esc(p.name)+' объясняет</span><span>'+esc(q.name)+' угадывает</span></div><div class="timer" id="clock">'+(h.round===1?45:30)+'</div><div class="word">'+(h.ends_at?(mine&&h.card?esc(h.card.text):'Слушаем. Смотрим. ♡'):(mine?'Твой выход!':'Готовимся к ходу'))+'</div><div class="actions">'+(h.ends_at?(mine?'<button class="secondary" onclick="hatAction(\'hat_skip\')">Пропустить</button><button class="primary" onclick="hatAction(\'hat_guess\')">Угадали ✓</button>':'<p>Слово видно только объясняющему.</p>'):(mine?'<button class="primary" onclick="act(\'hat_begin\')">Начать ход</button>':'<p>Ждём начала хода.</p>'))+'</div>'+(state.host&&h.ends_at?'<div class="actions"><button class="secondary" onclick="act(\'hat_end\')">Завершить ход досрочно</button></div>':'')+'</section>'+scores('hat_score')+'</div>';
 }
-
-function game(){
-  clean();
-  if(round===3){
-    app.innerHTML=back()+`
-      <div class="hero">
-        <span class="pill">Три раунда позади</span>
-        <h1>Вот это вечер<span class="pink"> ♡</span></h1>
-      </div>
-      <section class="card" style="max-width:600px;margin:auto">
-        <h2>Результаты игры</h2>${leaderboard()}
-      </section>`;
-    return;
-  }
-
-  app.innerHTML=back()+`
-    <h1 style="font-size:46px">${rounds[round]}</h1>
-    <span class="pill" id="roundInfo">
-      Раунд ${round+1} из 3 · слов в шляпе: ${pool.length}
-    </span>
-    <div class="split">
-      <section class="card">
-        <div class="row">
-          <span>${players[turn]} объясняет</span>
-          <span>${players[(turn+1)%players.length]} угадывает</span>
-        </div>
-        <div class="timer" id="clock">${durations[round]}</div>
-        <div class="word" id="word">Твой выход!</div>
-        <div id="controls" class="center">
-          <button class="primary" onclick="begin()">Начать ход</button>
-        </div>
-      </section>
-      <aside class="card" id="scores">
-        <h2>Личный счёт</h2>${leaderboard()}
-      </aside>
-    </div>`;
+function submitWords(){const words=Array.from({length:7},(_,i)=>getField('word'+i).trim());if(words.some(w=>!w||w.length>70))return toast('Нужно семь слов, каждое до 70 символов');if(new Set(words.map(w=>w.toLowerCase())).size!==7)return toast('Слова должны быть разными');act('words',{words})}
+function hatAction(action){const h=state.hat;if(!h.card)return;act(action,{turn_key:h.turn_key,card:h.card.id})}
+function tick(){const el=document.getElementById('clock');if(!el||!state)return;const h=state.hat;if(!h.ends_at)return;const t=Math.max(0,Math.ceil((h.ends_at-Date.now()-offset)/1000));el.textContent=t;app.querySelectorAll('[onclick^="hatAction"]').forEach(b=>b.disabled=!t||busy);if(!t){const word=app.querySelector('.word');if(word)word.textContent='Время! Передаём ход…'}}
+function musicView(){
+ const m=state.music,dj=state.players[m.turn],mine=dj.id===state.me;
+ if(songStatusRound!==m.round_id){songStatus='';songStatusRound=m.round_id}
+ let content='';
+ if(!state.locked)content='<h2>Сначала соберём компанию</h2><p>Все гости должны войти по ссылке. Затем ведущая фиксирует список, чтобы очередь оставалась одинаковой у всех.</p>'+ (state.host?'<button class="primary" onclick="lockRoom()">Все вошли — зафиксировать список</button>':'<p>Ждём ведущую.</p>');
+ else if(m.phase==='prepare')content=mine?'<h2>Твоя очередь включать ♫</h2><p>Выбери песню в Яндекс Музыке и тайно укажи её название. Остальные его не увидят.</p>'+input('song-'+m.number,'Название песни','Только название, без исполнителя')+'<label>Другие допустимые названия — по одному в строке<textarea id="f-aliases-'+m.number+'" data-field="aliases-'+m.number+'" maxlength="600" placeholder="Например, название на другом языке">'+esc(fieldValue('aliases-'+m.number))+'</textarea></label><button class="primary" onclick="prepareSong()">Песня готова</button>':'<h2>'+esc(dj.name)+' выбирает песню</h2><p>Как только трек будет готов, здесь появится поле для ответа.</p>';
+ else if(m.phase==='ready')content=mine?'<h2>Готово к старту</h2><p>Твой трек: <b>'+esc(m.song)+'</b></p><p>Сначала нажми кнопку ниже, затем сразу включи песню в Яндекс Музыке. Название на своём телефоне скрой от гостей.</p><button class="primary" onclick="act(\'music_begin\',{round_id:state.music.round_id})">Открыть приём ответов</button>':'<h2>Приготовься угадывать!</h2><p>'+esc(dj.name)+' сейчас включит песню.</p>';
+ else if(m.phase==='playing')content=mine?'<div class="icon">🎶</div><h2>Включай песню!</h2><p>'+esc(m.song)+'</p><p>Сейчас отвечают остальные. Победитель появится автоматически.</p>':'<h2>Узнал? Скорее пиши!</h2><p>Нужно название песни. Регистр, пробелы и знаки препинания не важны.</p><form id="songForm">'+input('guess-'+m.round_id,'Твой ответ','Название песни','','autocomplete="off"')+'<button class="primary" type="submit">Отправить ответ</button></form><p id="songStatus" aria-live="polite">'+esc(songStatus)+'</p>';
+ else{
+   const winner=state.players.find(p=>p.id===m.winner);
+   content='<div class="icon">'+(winner?'🏆':'🎶')+'</div><h2>'+(winner?esc(winner.name)+' — первый правильный ответ!':'Раскрываем песню')+'</h2><div class="word">'+esc(m.song)+'</div><p>'+(winner?'За этот трек — 1 балл.':'В этом ходе без победителя.')+'</p>';
+   if(mine||state.host)content+='<button class="primary" onclick="act(\'music_next\',{round_id:state.music.round_id})">Следующий включает</button>';
+ }
+ if((mine||state.host)&&['ready','playing'].includes(m.phase))content+='<div class="actions"><button class="secondary" onclick="act(\'music_reveal\',{round_id:state.music.round_id})">Закончить и раскрыть песню</button></div>';
+ const order=state.players.map((_,k)=>state.players[(m.turn+k)%state.players.length]);
+ return '<h1>Это же та самая<span class="pink">!</span></h1><div class="row"><span class="pill">Сейчас включает: '+esc(dj.name)+'</span><span class="meta">Трек '+m.number+'</span></div><div class="split"><section class="card">'+content+'</section>'+scores('music_score')+'</div><section class="card" style="margin-top:20px"><h2>Очередь включающих</h2><div class="chips">'+order.map((p,k)=>'<span class="chip">'+(k===0?'Сейчас: ':k+' · ')+esc(p.name)+'</span>').join('')+'</div><p><small>Побеждает первый верный ответ, обработанный сервером. Включающий в своём ходе не угадывает. Песни запускаются вручную в Яндекс Музыке.</small></p></section>';
 }
-
-function finishTurn(){
-  turn=(turn+1)%players.length;
-  end=0;
-  game();
+function prepareSong(){const number=state.music.number;const song=getField('song-'+number).trim();const aliases=getField('aliases-'+number).split('\n').map(s=>s.trim()).filter(Boolean);if(!song)return toast('Введи название песни');if(aliases.length>5)return toast('До пяти дополнительных вариантов');act('music_prepare',{song,aliases})}
+app.addEventListener('submit',async e=>{if(e.target.id!=='songForm')return;e.preventDefault();const round=state.music.round_id;const answer=getField('guess-'+round).trim();if(!answer)return toast('Введи название песни');const next=await act('music_guess',{round_id:round,answer});if(next&&next.music.round_id===round&&next.music.phase==='playing'){songStatus='Пока не совпало — попробуй ещё!';songStatusRound=round;render(true)}});
+const questions=['Как зовут моих родителей?','Какой предмет я больше всего любила в школе?','Какой предмет я больше всего любила в вузе?','Какие три секции я посещала в детстве?','Какую фразу я говорю чаще всего?','На что я первым делом потратила бы внезапный миллион?','Под какую песню я точно не усидела бы на месте?','Какая моя привычка сразу меня выдаёт?','Как выглядит мой идеальный выходной?','Какой наш совместный момент мне стоит вспомнить сегодня?'];
+// Перед праздником замените варианты секций на нужные.
+const options=['Танцы','Плавание','Гимнастика','Рисование','Волейбол','Музыкальная школа','Театральная студия','Теннис','Лёгкая атлетика','Боевые искусства'];
+function quizDraft(){return savedRead('birthday.quiz.'+room,{answers:{},sections:[]})}
+function saveQuizDraft(){if(screen!=='quiz'||!state)return;const data={answers:{},sections:[...app.querySelectorAll('[data-choice]:checked')].map(x=>Number(x.dataset.choice))};questions.forEach((_,i)=>{if(i!==3)data.answers[i]=getField('quiz'+i)});savedWrite('birthday.quiz.'+room,data)}
+function restoreQuizFields(){if(screen!=='quiz'||state.quiz_sent)return;const draft=quizDraft();app.querySelectorAll('[data-choice]').forEach(el=>el.checked=(draft.sections||[]).includes(Number(el.dataset.choice)))}
+function quizView(){
+ if(state.quiz_sent)return '<div class="hero"><span class="icon">💌</span><h1>Спасибо, '+esc(state.name)+' ♡</h1><p>Твои ответы отправлены Ангелине.</p><button class="primary" onclick="go(\'home\')">Вернуться к играм</button></div>';
+ const draft=quizDraft();
+ return '<h1>Кто знает<br>Ангелину?</h1><span class="pill">Отвечает: '+esc(state.name)+'</span><p>Свободные ответы проверит именинница.</p>'+questions.map((q,i)=>'<section class="card question"><small>Вопрос '+(i+1)+' из '+questions.length+'</small><h2>'+q+'</h2>'+(i===3?'<p>Выбери три варианта.</p>'+options.map((o,j)=>'<label class="option"><input type="checkbox" data-choice="'+j+'">'+o+'</label>').join(''):'<textarea id="f-quiz'+i+'" data-field="quiz'+i+'" maxlength="1000" placeholder="Твоя версия…">'+esc(fieldValue('quiz'+i,draft.answers?.[i]||''))+'</textarea>')+'</section>').join('')+'<button class="primary" onclick="submitQuiz()">Отправить ответы Ангелине</button><p role="status">'+esc(quizStatus)+'</p>';
 }
-
-function begin(){
-  clean();
-  end=Date.now()+durations[round]*1000;
-  document.getElementById('word').textContent=pool[0];
-  document.getElementById('controls').innerHTML=`
-    <div class="row">
-      <button class="secondary" onclick="skip()">Пропустить</button>
-      <button class="primary" onclick="guess()">Угадали ✓</button>
-    </div>`;
-
-  interval=setInterval(()=>{
-    const t=Math.max(0,Math.ceil((end-Date.now())/1000));
-    document.getElementById('clock').textContent=t;
-    if(!t)finishTurn();
-  },150);
+async function submitQuiz(){const sections=[...app.querySelectorAll('[data-choice]:checked')].map(x=>Number(x.dataset.choice));if(sections.length!==3)return toast('Выбери три секции');saveQuizDraft();const answers={};questions.forEach((q,i)=>answers[q]=i===3?sections.map(j=>options[j]):getField('quiz'+i).trim());quizStatus='';await act('quiz_submit',{answers})}
+async function poll(){
+ if(!state||busy||polling||document.hidden)return;
+ polling=true;
+ try{const next=await rpc('state');accept(next)}catch(e){setConnection('Связь прервана. Переподключаемся автоматически…')}
+ finally{polling=false}
 }
-
-function skip(){
-  if(!end)return;
-  if(Date.now()>=end){finishTurn();return;}
-  pool.push(pool.shift());
-  document.getElementById('word').textContent=pool[0];
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)poll()});
+setInterval(poll,1500);setInterval(tick,150);
+async function boot(){
+ if(room&&!/^[0-9a-f-]{36}$/i.test(room)){setConnection('Некорректная ссылка комнаты');room=null;entry();return}
+ if(room){membership();try{accept(await rpc('state'));return}catch(e){setConnection('Введи имя, чтобы присоединиться к комнате')}}
+ else setConnection('Создай комнату и пригласи друзей');
+ entry();
 }
-
-function guess(){
-  if(!end)return;
-  if(Date.now()>=end){finishTurn();return;}
-
-  scores[turn]++;
-  scores[(turn+1)%players.length]++;
-  pool.shift();
-
-  if(!pool.length){
-    round++;
-    turn=(turn+1)%players.length;
-    pool=[...words];
-    end=0;
-    game();
-    return;
-  }
-
-  document.getElementById('word').textContent=pool[0];
-  document.getElementById('scores').innerHTML='<h2>Личный счёт</h2>'+leaderboard();
-  document.getElementById('roundInfo').textContent=
-    'Раунд '+(round+1)+' из 3 · слов в шляпе: '+pool.length;
-}
-
-const questions=[
-  'Как зовут моих родителей?',
-  'Какой предмет я больше всего любила в школе?',
-  'Какой предмет я больше всего любила в вузе?',
-  'Какие три секции я посещала в детстве?',
-  'Какую фразу я говорю чаще всего?',
-  'На что я первым делом потратила бы внезапный миллион?',
-  'Под какую песню я точно не усидела бы на месте?',
-  'Какая моя привычка сразу меня выдаёт?',
-  'Как выглядит мой идеальный выходной?',
-  'Какой наш совместный момент мне стоит вспомнить сегодня?'
-];
-
-const options=[
-  'Танцы','Плавание','Гимнастика','Рисование','Волейбол',
-  'Музыкальная школа','Театральная студия','Теннис',
-  'Лёгкая атлетика','Боевые искусства'
-];
-
-function quiz(){
-  clean();
-  app.innerHTML=back()+`
-    <h1>Кто знает<br>Ангелину<span class="pink">?</span></h1>
-    <p>Где-то пригодится память, где-то — интуиция.
-    Свободные ответы проверит именинница.</p>
-    <section class="card">
-      <label>Твоё имя
-        <input type="text" id="guest" placeholder="Как тебя зовут?">
-      </label>
-    </section>`+
-    questions.map((q,i)=>`
-      <section class="card question">
-        <span class="label">Вопрос ${i+1} из ${questions.length}</span>
-        <h2>${q}</h2>
-        ${i===3
-          ? '<p>Выбери три варианта.</p>'+
-            options.map((o,j)=>`
-              <label class="option">
-                <input type="checkbox" data-choice="${j}">${o}
-              </label>`).join('')
-          : `<textarea data-answer="${i}" placeholder="Твоя версия…"></textarea>
-             <div class="label">Проверит Ангелина</div>`
-        }
-      </section>`).join('')+
-    `<button class="primary" onclick="submitQuiz()">Сохранить ответы</button>
-     <p id="message" aria-live="polite"></p>`;
-
-  const nameInput=document.getElementById('guest');
-  nameInput.value=guest;
-  nameInput.oninput=()=>guest=nameInput.value;
-
-  document.querySelectorAll('[data-answer]').forEach(el=>{
-    el.value=answers[el.dataset.answer]||'';
-    el.oninput=()=>answers[el.dataset.answer]=el.value;
-  });
-
-  document.querySelectorAll('[data-choice]').forEach(el=>{
-    el.checked=selectedSections.includes(Number(el.dataset.choice));
-    el.onchange=()=>{
-      if(document.querySelectorAll('[data-choice]:checked').length>3){
-        el.checked=false;
-      }
-      selectedSections=Array.from(
-        document.querySelectorAll('[data-choice]:checked'),
-        x=>Number(x.dataset.choice)
-      );
-    };
-  });
-}
-
-function submitQuiz(){
-  const message=document.getElementById('message');
-  if(!guest.trim()){
-    message.textContent='Напиши своё имя в начале страницы.';
-    return;
-  }
-  if(selectedSections.length!==3){
-    message.textContent='В вопросе про секции выбери ровно три варианта.';
-    return;
-  }
-
-  try{
-    localStorage.setItem('angelinaBirthdayAnswers',JSON.stringify({
-      guest,answers,sections:selectedSections
-    }));
-    message.textContent='Ответы сохранены на этом устройстве ♡';
-  }catch{
-    message.textContent='Ответы остаются на странице до её закрытия ♡';
-  }
-}
-
-function music(){
-  clean();
-  app.innerHTML=back()+`
-    <h1>Это же та самая<span class="pink">!</span></h1>
-    <div class="split">
-      <section class="card">
-        <div class="icon">🎶</div>
-        <h2>Угадываем с первых секунд</h2>
-        <p>Ведущий включает случайный трек из плейлиста
-        в Яндекс Музыке, скрыв название от гостей.</p>
-        <p>Игроки угадывают по очереди: слушают отрывок
-        и называют песню и исполнителя.</p>
-        <p>Один балл за название и один за исполнителя.
-        Если не угадал — шанс переходит остальным.</p>
-        <div class="note">Музыка включается вручную в Яндекс Музыке.
-        Кнопка справа запускает таймер.</div>
-      </section>
-      <section class="card center">
-        <span class="pill">Слушаем внимательно</span>
-        <h2>Всего десять секунд</h2>
-        <div class="timer" id="musicClock">10</div>
-        <button class="primary" onclick="musicTimer()">Начать отсчёт</button>
-        <p>Ну же, ты точно её знаешь ♡</p>
-      </section>
-    </div>`;
-}
-
-function musicTimer(){
-  clean();
-  const finish=Date.now()+10000;
-  document.getElementById('musicClock').textContent=10;
-  interval=setInterval(()=>{
-    const t=Math.max(0,Math.ceil((finish-Date.now())/1000));
-    document.getElementById('musicClock').textContent=t||'Стоп!';
-    if(!t)clean();
-  },150);
-}
-
-try{
-  const saved=JSON.parse(localStorage.getItem('angelinaBirthdayAnswers')||'null');
-  if(saved){
-    guest=typeof saved.guest==='string'?saved.guest:'';
-    Object.assign(answers,saved.answers||{});
-    selectedSections=Array.isArray(saved.sections)?saved.sections:[];
-  }
-}catch{}
-
-home();
+boot();
 </script>
 </body>
 </html>
